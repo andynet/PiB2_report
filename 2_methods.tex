@@ -1,0 +1,40 @@
+\chapter{Methods}
+\label{chap:methods}
+
+In this chapter we will describe the process of variational inference and compare it to markov chain monte carlo methods (MCMC).
+We describe the basics of autoencoders architecture.
+Next we combine these two to variational autoencoder.
+
+\section{Variational inference}
+The main idea behind variational inference is to use optimization.
+First, we posit a family of approximate densities $\mathscr{Q}$. \cite{blei2017statreview} 
+
+Then, we try to find the member of that family that minimizes the Kullback-Leibler(KL) divergence to the exact posterior,
+$$q^{\ast}(z) = \argmin_{q(z) \in \mathscr{Q}} \KL(q(z) \| p(z|x))$$.
+Finally, we approximate the posterior with the optimized member of the family $q^{\ast}(\cdot)$.
+
+$$p(z|x)=\frac{p(z,x)}{p(x)}$$
+
+The denominator, sometimes called the evidence, is intractable.
+
+The goal:
+$$
+q^{\ast}(z) = \argmin_{q(z) \in \mathscr{Q}} \KL(q(z) \| p(z|x))
+$$
+
+$$
+- \KL(q(z) \| p(z|x)) = - \mathds{E}[\log q(z)] + \mathds{E}[\log p(z,x)] - \log p(x).
+$$
+Because we cannot compute the $KL$, we optimize an alternative objective that is equivalentto the $KL$ up to an added constant,
+$$
+\ELBO(q) = \mathds{E}[\log p(z,x)] - \mathds{E}[\log q(z)]
+$$
+
+Maximizing the $\ELBO$ is equivalent to minimizing the $\KL$ divergence.
+Another characteristic of $\ELBO$ is that it bounds the log evidence
+$$ \log p(x) \geq \ELBO(q) $$
+
+$$ \log p(x) = \KL( q(z) \| p(z|x)) + \ELBO(q) $$
+
+\section{Autoencoders}
+\section{Variational Autoencoders}

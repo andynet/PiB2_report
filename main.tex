@@ -1,0 +1,43 @@
+\documentclass[10pt,a4paper]{report}
+
+% packages
+\usepackage[utf8]{inputenc}
+\usepackage{mathrsfs}
+% used for: \mathscr{Q}
+\usepackage{amsmath}
+\usepackage{dsfont}
+% used for: \mathds{E}
+
+% definitions
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\KL}{KL}
+\DeclareMathOperator{\ELBO}{ELBO}
+
+% http://detexify.kirelabs.org/classify.html
+
+\begin{document}
+
+\title{Modelling single-cell RNA-seq data using variational Autoencoders}
+\author{Andrej Balaz}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+The abstract will be here...
+\end{abstract}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+\newpage
+
+\input{1_introduction.tex}
+\input{2_methods.tex}
+\input{3_results.tex}
+\input{4_discussion.tex}
+\input{5_conclusion.tex}
+
+\bibliographystyle{plain}
+\bibliography{0_sources} 
+
+\end{document}
