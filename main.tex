@@ -7,6 +7,15 @@
 \usepackage{amsmath}
 \usepackage{dsfont}
 % used for: \mathds{E}
+\usepackage{svg}
+\usepackage{float}
+\usepackage{rotating}
+
+% \usepackage{layouts}
+
+% 
+\newcounter{example}[section]
+\newenvironment{example}[1][]{\refstepcounter{example}\par\medskip\noindent\textbf{Example~\theexample. #1}\rmfamily}{\medskip}
 
 % definitions
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -22,9 +31,9 @@
 \date{\today}
 \maketitle
 
-\begin{abstract}
-The abstract will be here...
-\end{abstract}
+% \begin{abstract}
+% The abstract will be here...
+% \end{abstract}
 
 \tableofcontents
 %\listoffigures
@@ -37,7 +46,7 @@ The abstract will be here...
 \input{4_discussion.tex}
 \input{5_conclusion.tex}
 
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{0_sources} 
 
 \end{document}

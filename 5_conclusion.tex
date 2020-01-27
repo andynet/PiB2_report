@@ -1,3 +1,23 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
 
+The main goal of this project was to show how to use the variational autoencoders to create a low-dimensional probabilistic representation of the single-cell RNA-seq data.
+One of the advantages of this representation for the downstream analysis tasks is the possibility to model the uncertainty of the data.
+Another advantage of using the variational autoencoders is that they enable us to capture non-linear relationships between the data and the representation and that they provide a natural way to use them with recent big datasets.
+
+Since the variational autoencoders are the combination of neural networks architecture with the variational inference, we needed to introduce these two topics.
+
+In the part about the neural networks, we described the basic model, its components and how to train such a model using the Stochastic Gradient Descent method.
+Then we showed how to apply these concepts for the standard autoencoder architecture and what are the main differences.
+
+To explain the variational inference, we first needed to introduce the basic concepts from the Bayesian inference, since the variational inference is trying to approximate it.
+To better illustrate the goal of the Bayesian inference, we showed an example of Approximate Bayesian Computation, as we think this is the simplest procedure to explain.
+We also included a summary of MCMC methods, since these are the most commonly used methods for approximating the Bayesian inference and we wanted to highlight the main difference between MCMC methods and variational inference.
+Finally, we described the variational inference in details.
+We showed how to reformulate the original problem into an optimization problem and we introduced an ELBO quantity, which helped us to solve this problem.
+
+At the end of the second chapter, we combined those two topics into variational autoencoder and explained how we can train this model.
+
+In the implementation part of this project, we explain the details of the used architecture.
+We also show, how we tested the correctness of our program with the MNIST dataset.
+Finally, we demonstrated how to use the model on the single-cell RNA-seq CORTEX dataset and we compared the results with the results from the original publication.

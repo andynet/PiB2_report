@@ -1,8 +1,36 @@
 \chapter{Introduction}
 \label{chap:intro}
 
-% what is single cell RNA sequencing
-% what are the biases in scRNA-seq experiment and how do they arise
-% what was done up to this point
-% what will we try to achieve in this work
+% What is single-cell RNA sequencing
+Single-cell RNA sequencing is an important tool for analysing the biological processes in the fields such as oncology, developmental biology, neurology, and study of autoimmune and infectious diseases \cite{patel2014single}.
+In comparison with its older cousin, bulk RNA sequencing, it provides us with the expression profile at a resolution of individual cells.
+In spite of the impossibility of retrieving the full information of the expression profile due to the small number of transcripts in a particular cell, this data can be used to find the patterns of gene expression \cite{lopez2018scvi}.
+Using clustering analysis on these high-resolution patterns, we can uncover rare cell types, never observed in the tissue before.
+% What are the biases in the single-cell RNA-seq experiment and how do they arise?
+However, the interpretation of the single-cell RNA-seq data remains challenging, mainly because of the high dimensionality of such data, limited and variable sensitivity, batch effects and transcriptional noise.
+% Modelling of the single-cell RNA-seq data can be used for various tasks such as imputations of missing values, clustering of the different cells and differential expression analysis.
+% What was done up to this point?
+Several methods have been proposed for this task \cite{pierson2015zifa}.
+Unfortunately, most of these methods assume that a generalized linear model can be used to map the single-cell RNA-seq data to a low dimensional representation.
+Furthermore, most existing methods cannot be applied to recent huge datasets consisting of many thousands of cells \cite{regev2017science}.
 
+% What will we try to achieve in this work?
+In this report, we explore the possibility to model single-cell data by using the variational autoencoder.
+This approach allows us to use a non-linear function to map the data to its low dimensional representation.
+Furthermore, this representation is probabilistic, which allows us to model the uncertainty of our representation, which might be important information for the downstream analysis.
+Also, after the training phase, our model can be used to quickly evaluate new data, which makes it suitable for huge datasets.
+% A special type of neural network, which allows us to map single-cell DNA to lower-dimensional latent space.
+
+To introduce variational autoencoder, we need to define and explain a lot of new terminologies.
+
+First, we briefly introduce the concept of neural networks with special attention to autoencoders, because this is the basic machine learning model we are extending in variational autoencoder.
+
+Since our model creates a probabilistic representation, we need to explain the basics of bayesian modelling.
+To illustrate the main goal of approximate Bayesian inference, we use the approximate Bayesian computation, because this method is easy to understand.
+Other methods aim for the same goal but are using some clever tricks to get there faster.
+Next, we compare the most commonly used methods, Markov chain Monte Carlo, to variational inference used in this project and explain the variational inference in details.
+Finally, we show how to merge the two concepts of variational inference and autoencoder into variational autoencoder.
+
+% We start by introducing the basics of variational inference and compare it to the classical Bayesian approach.
+Afterwards, we present the model created in this project and we show the experiments we performed on well-known MNIST dataset \cite{lecun1998gradient} to test the correctness of our implementation.
+Finally, we demonstrate how to use the model on the single-cell RNA-seq data.
